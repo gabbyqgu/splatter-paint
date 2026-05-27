@@ -24,8 +24,14 @@
 <body>
     <div id="start-page">
         <h1>Splatter Paint!</h1>
-        <button id="start-btn">start</button>
+        <button id="start-btn" onclick="startPainting()">start painting</button>
     </div>
     <canvas id="splatterPaint" resize></canvas> <!-- u can draw stuff on a canvas :o-->
+    <script>
+        function startPainting() {
+            document.getElementById("start-page").style.display = "none";
+            document.getElementById("splatterPaint").style.visibility = "visible";
+        }
+    </script>
 </body> 
 </html>

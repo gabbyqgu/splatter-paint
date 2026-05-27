@@ -1,3 +1,5 @@
+/* this is paperscript (not normal js!!) */
+
 tool.fixedDistance = Math.round(Math.random() * 25)
 function onMouseMove(event) {
     //wherever the cursor goes, a circle is created
