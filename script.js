@@ -1,11 +1,10 @@
 /* this is paperscript (not normal js!!) */
 
-tool.fixedDistance = Math.round(Math.random() * 25)
-function onMouseMove(event) {
+function onMouseDrag(event) {
     //wherever the cursor goes, a circle is created
     var path = new Path.Circle({ 
         center: event.middlePoint,
-        radius: Math.round(Math.random() * 25) + 5 //random # btwn 5 + 30
+        radius: Math.round(Math.random() * 35) + 5 //random # btwn 5 + 40
     })
     path.fillColor = {
         /* hue: 360 deg color wheel! 0 deg = red */
