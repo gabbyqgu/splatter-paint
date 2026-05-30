@@ -8,8 +8,8 @@ function onMouseDrag(event) {
     })
     path.fillColor = {
         /* hue: 360 deg color wheel! 0 deg = red */
-        hue: event.count * 3, //color changes by 3deg every frame
-        /*hue: Math.round(Math.random() * 360), */
+        hue: event.count * 5, //color changes by 3deg every frame
+        /* hue: Math.round(Math.random() * 360), */ //SUPER DUPER flashy...
         saturation: 0.6,
         brightness: 1
     }

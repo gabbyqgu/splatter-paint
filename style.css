@@ -24,7 +24,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(255, 213, 226);
+    background-color: rgb(255, 224, 234);
 } 
 
 #start-page h1 {
@@ -68,6 +68,19 @@
     color: rgb(255, 246, 249); 
 }
 
-#flowers {
-    
+.flower {
+    size: 5rem;
+    position: fixed; /* relative to screen */
+    top: -100px; /* so flowers stay above screen + fall into view */
+    animation: fall linear infinite; /* linear = constant speed */
+    pointer-events: none; /* unclickable */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(300vh) rotate(360deg);
+    }
 }

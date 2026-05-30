@@ -28,15 +28,36 @@
         <button id="start-btn" onclick="startPainting()">start painting</button>
     </div>
     <canvas id="splatterPaint" resize></canvas> <!-- u can draw stuff on a canvas :o-->
-    <script>
+    
+    <!--lol all my js :D -->
+    <script> 
         function startPainting() {
             document.getElementById("start-page").style.display = "none";
             document.getElementById("splatterPaint").style.visibility = "visible";
         }
 
         const flowerImages = [
-            
-        ]
+            "blue-flower.png",
+            "pink-flower.png",
+            "purple-flower.png"
+        ];
+        
+        function createFlowers() {
+        /* 1. make container 2. x15: create img, pick random flower, position, speed, then add 2 page */
+            const container = document.getElementById("flowers");
+            for (let i = 0; i < 15; i++) { // basically for i in range(15)
+                const flower = document.createElement("img"); //creates img each time(where the source is the flower)
+                flower.src = //basically randomly picks a flower from the list 
+                    flowerImages[Math.floor /*rounds down*/ (Math.random() /* # btwn 0 + not quite 1 */ * flowerImages.length)]; 
+                flower.classList.add("flower"); //adds to class(so i can do css stuff)
+                flower.style.left =
+                    Math.random() * 100 + "vw"; // random horizontal position(100 is 100% of L / R);
+                flower.style.animationDuration = 5 + Math.random() * 5 + "s";
+                container.appendChild(flower);
+            }
+                
+        }
+        createFlowers() 
     </script>
 </body> 
 </html>
