@@ -8,6 +8,8 @@
         src="script.js"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+
     <style>
         html, body {
             margin: 0;
@@ -28,14 +30,13 @@
         <button id="start-btn" onclick="startPainting()">start painting</button>
     </div>
     <canvas id="splatterPaint" resize></canvas> <!-- u can draw stuff on a canvas :o-->
-    
+    <button id="clear-btn" onclick="clearCanvas()">clear</button> <!--by putting it here the button is ono the canvas screen(not home page)-->
     <!--lol all my js :D -->
     <script> 
         function startPainting() {
             document.getElementById("start-page").style.display = "none";
             document.getElementById("splatterPaint").style.visibility = "visible";
         }
-
         const flowerImages = [
             "blue-flower.png",
             "pink-flower.png",
@@ -52,12 +53,17 @@
                 flower.classList.add("flower"); //adds to class(so i can do css stuff)
                 flower.style.left =
                     Math.random() * 100 + "vw"; // random horizontal position(100 is 100% of L / R);
-                flower.style.animationDuration = 5 + Math.random() * 5 + "s";
+                flower.style.animationDuration = 2.5 + Math.random() * 4 + "s"; // some falls faster
+                flower.style.animationDelay = Math.random() * 8 + "s"; //starting at random times(not all @ 0)
                 container.appendChild(flower);
             }
                 
         }
         createFlowers() 
+
+        function clearCanvas() {
+           location.reload();
+}
     </script>
 </body> 
 </html>

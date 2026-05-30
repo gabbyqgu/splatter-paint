@@ -13,4 +13,5 @@ function onMouseDrag(event) {
         saturation: 0.6,
         brightness: 1
     }
-} 
+}  
+

@@ -20,7 +20,9 @@
 #start-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* only works on flex container */
+    position: relative;
+    z-index: 1;
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -58,7 +60,7 @@
 }
 #start-btn {
     font-family: "malampoek", monospace;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.15em; /* em: relative to PARENT(if parent div has font size of 20, 1em=20px*/
     padding: 12px;
     padding-left: 20px;
     padding-right: 20px;
@@ -66,10 +68,17 @@
     border: none;
     background-color: rgb(197, 111, 111);
     color: rgb(255, 246, 249); 
+    transition: transform 0.1s ease; /* by putting it(instead of hover) here it grows and shrinks smoothly */
+}
+
+#start-btn:hover {
+    transform: scale(1.12);
 }
 
 .flower {
-    size: 5rem;
+    width: 6rem; /* relative to ROOT(if root font size is 16px, 1rem=16px */
+    z-index: -1; /* falls BEHIND my text (xyz plane) */
+    image-rendering: pixelated;
     position: fixed; /* relative to screen */
     top: -100px; /* so flowers stay above screen + fall into view */
     animation: fall linear infinite; /* linear = constant speed */
@@ -78,9 +87,27 @@
 
 @keyframes fall {
     0% {
-        transform: translateY(0px);
+        transform: translateY(0vh);
     }
     100% {
-        transform: translateY(300vh) rotate(360deg);
+        transform: translateY(130vh) rotate(360deg);
     }
 }
+
+#clear-btn {
+    font-family: "malampoek", monospace; 
+    position: fixed; /* removes itself from layout(ignores parents); same spot when u scroll */
+    justify-content: center;
+    letter-spacing: 0.15em;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(238, 167, 167);
+    color: rgb(128, 36, 36);
+}
+
