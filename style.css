@@ -1,4 +1,4 @@
-@font-face {
+@font-face { /* upload my own font */
     font-family: "malampoek";
     src: url("malampoek.otf");
 }
@@ -32,7 +32,9 @@
 #start-page h1 {
     font-family: "closet", monospace; 
     font-size: clamp(3rem, 10vw, 6rem); /* try to be 8vw(8% of viewport width); min 2rem max 6rem */
-    animation: rainbow 12s ease infinite;
+    animation: 
+        rainbow 12s ease infinite,
+        sway 5s ease-in-out infinite;
 }
 
 @keyframes rainbow {
@@ -58,6 +60,18 @@
         color:rgb(163, 74, 102)
     }
 }
+
+@keyframes sway {
+    0% {
+        transform: rotate(-6deg);
+    }
+    50% {
+        transform: rotate(6deg);
+    }
+    100% {
+        transform: rotate(-6deg);
+    }
+}
 #start-btn {
     font-family: "malampoek", monospace;
     letter-spacing: 0.15em; /* em: relative to PARENT(if parent div has font size of 20, 1em=20px*/
@@ -73,10 +87,12 @@
 
 #start-btn:hover {
     transform: scale(1.12);
+    background-color: rgb(185, 93, 93);
+
 }
 
 .flower {
-    width: 6rem; /* relative to ROOT(if root font size is 16px, 1rem=16px */
+    width: 7rem; /* relative to ROOT(if root font size is 16px, 1rem=16px */
     z-index: -1; /* falls BEHIND my text (xyz plane) */
     image-rendering: pixelated;
     position: fixed; /* relative to screen */
@@ -111,3 +127,6 @@
     color: rgb(128, 36, 36);
 }
 
+#clear-btn:hover {
+    background-color:rgb(218, 140, 140);
+}
